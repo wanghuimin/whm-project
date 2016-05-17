@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/miaov/lunbo.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="img-wrap">
+            <img id="img" />
+            <p id="pic-num"></p>
+            <p id="pic-info">正在加载。。。</p>
+        </div>
+        <ul id="small-img">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        window.onload = function(){
+            var Img = document.getElementById('img');
+            var picNum = document.getElementById('pic-num');
+            var picInfo = document.getElementById('pic-info');
+            var smallImg = document.getElementById('small-img');
+            var smallList = smallImg.getElementsByTagName('li');
+            var picArray = new Array('pic1.jpg','pic2.jpg','pic3.jpg','pic4.jpg');
+            var infoArray = new Array('第一张图片','第二张图片','第三张图片','第四张图片');
+            var num = 0;
+
+            
+
+            picNum.innerHTML = '1' + '/' + infoArray.length;
+
+
+        }
+    </script>
+
+</body>
+</html>

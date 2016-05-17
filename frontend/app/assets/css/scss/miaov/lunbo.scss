@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+*{
+    margin: 0 auto;
+}
+#wrap{
+    width: 980px;
+    margin: 0 auto;
+    #img-wrap{
+        position: relative;
+        width: 840px;
+        height: 500px;
+        background: #eee;
+        float: left;
+        #pic-num,
+        #pic-info{
+            height: 30px;
+            line-height: 30px;
+            position: absolute;
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            text-align: center;
+        }
+        #pic-num{
+            top: 0;
+        }
+        #pic-info{
+            bottom: 0;
+        }
+    }
+    #small-img{
+        float: right;
+        width: 50px;
+        list-style-type: none;
+        margin-top: 30px;
+        li{
+            height: 50px;
+            background: #333;
+            margin-bottom: 5px
+        }
+    }
+}

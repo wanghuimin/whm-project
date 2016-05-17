@@ -213,7 +213,7 @@ gulp.task('serveCopyCss', function () {
 });
 
 gulp.task('serveCss', function(callback) {
-    gulpSequence('clearBuildCss', 'clearServe', 'serveSass','serveCssmin','serveCopyCss')(callback)
+    gulpSequence('serveSass','serveCssmin','serveCopyCss')(callback)
 });
 
 /**
