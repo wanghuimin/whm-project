@@ -1,0 +1,28 @@
+{
+  "name": "whm-project",
+  "version": "0.0.0",
+  "private": true,
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1",
+    "modernizr": "~2.8.1",
+    "requirejs": "jrburke/requirejs#~2.1.17",
+    "bootstrap-sass-official": "~3.3.4",
+    "perfect-scrollbar": "~0.5.8",
+    "jquery-cookie": "~1.4.1",
+    "jquery-pjax": "~1.9.6",
+    "cropper": "~0.9.3",
+    "Chart.js": "~1.0.2"
+  },
+  "appPath": "frontend/app"
+}

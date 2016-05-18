@@ -13,6 +13,10 @@
   background: #eee;
   float: left;
 }
+#wrap #img-wrap img {
+  width: 840px;
+  height: 500px;
+}
 #wrap #img-wrap #pic-num,
 #wrap #img-wrap #pic-info {
   height: 30px;
@@ -31,12 +35,21 @@
 }
 #wrap #small-img {
   float: right;
-  width: 50px;
+  width: 60px;
   list-style-type: none;
   margin-top: 30px;
 }
 #wrap #small-img li {
+  text-align: center;
   height: 50px;
+  width: 50px;
   background: #333;
   margin-bottom: 5px;
+}
+#wrap #small-img li img {
+  width: 50px;
+  height: 50px;
+}
+#wrap #small-img li.active {
+  border: 3px solid #E1BA76;
 }

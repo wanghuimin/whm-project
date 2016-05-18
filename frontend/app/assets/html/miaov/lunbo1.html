@@ -13,10 +13,6 @@
             <p id="pic-info">正在加载。。。</p>
         </div>
         <ul id="small-img">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
         </ul>
     </div>
     <script type="text/javascript">
@@ -29,12 +25,33 @@
             var picArray = new Array('pic1.jpg','pic2.jpg','pic3.jpg','pic4.jpg');
             var infoArray = new Array('第一张图片','第二张图片','第三张图片','第四张图片');
             var num = 0;
-
-            
-
-            picNum.innerHTML = '1' + '/' + infoArray.length;
+            var oldActive = null;
 
 
+            for (var i = 0; i < picArray.length; i++) {
+                console.log(picArray[i]);
+                smallImg.innerHTML += '<li><img src='+'/assets/images/miaov/'+ picArray[i] +'></li>';
+            }
+
+            oldActive = smallList[0];
+
+            function imgTab(){
+                Img.src = '/assets/images/miaov/' + picArray[num];
+                picInfo.innerHTML = infoArray[num];
+                picNum.innerHTML = '1' + '/' + infoArray.length;
+                smallList[num].className = 'active';
+            }
+            imgTab();
+
+            for (var i = 0; i < smallList.length; i++) {
+                smallList[i].index = i;
+                smallList[i].onclick = function(){
+                    num = this.index;
+                    oldActive.className = '';
+                    oldActive = this;
+                    imgTab();
+                }
+            }
         }
     </script>
 

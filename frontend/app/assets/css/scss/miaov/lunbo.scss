@@ -12,6 +12,10 @@
         height: 500px;
         background: #eee;
         float: left;
+        img{
+            width: 840px;
+            height: 500px;
+        }
         #pic-num,
         #pic-info{
             height: 30px;
@@ -31,13 +35,22 @@
     }
     #small-img{
         float: right;
-        width: 50px;
+        width: 60px;
         list-style-type: none;
         margin-top: 30px;
         li{
+            text-align: center;
             height: 50px;
+            width: 50px;
             background: #333;
-            margin-bottom: 5px
+            margin-bottom: 5px;
+            img{
+                width: 50px;
+                height: 50px;
+            }
+            &.active{
+                border: 3px solid #E1BA76;
+            }
         }
     }
 }

@@ -1,0 +1,1 @@
+#person_list,#person_list li ul li{background:#eee}*{padding:0;margin:0}ul{list-style-type:none}#person_list{width:200px;margin:0 auto;border:1px solid #000;padding-bottom:20px}#person_list li h2{background:#ddd;height:30px;line-height:30px}#person_list li ul{display:none}#person_list li ul li.active{background:red}

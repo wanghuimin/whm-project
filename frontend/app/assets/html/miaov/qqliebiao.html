@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/miaov/qqliebiao.min.css">
+</head>
+<body>
+    <ul id="person_list">
+        <li>
+            <h2>我的好友</h2>
+            <ul>
+                <li>张三</li>
+                <li>李四</li>
+                <li>王五</li>
+            </ul>
+        </li>
+        <li>
+            <h2>我的同学</h2>
+            <ul>
+                <li>赵六</li>
+                <li>钱七</li>
+                <li>孙八</li>
+            </ul>
+        </li>
+        <li>
+            <h2>黑名单</h2>
+            <ul>
+                <li>周九</li>
+                <li>吴二</li>
+                <li>周一</li>
+            </ul>
+        </li>
+    </ul>
+    <script type="text/javascript">
+        window.onload = function(){
+            var personList = document.getElementById('person_list');
+            var personTitle = personList.getElementsByTagName('h2');
+            var userList = personList.getElementsByTagName('ul');
+            var userName = null;
+            var nameArr = [];
+            for (var i = 0; i < personTitle.length; i++) {
+                personTitle[i].index = i;
+                personTitle[i].flag = true;
+                personTitle[i].onclick = function(){
+                    if (this.flag) {
+                        for (var i = 0; i < userList.length; i++) {
+                            userList[i].style.display = 'none';
+                            personTitle[i].flag = true;
+                        }
+                        userList[this.index].style.display = 'block';
+                        this.flag = false;
+                    }else{
+                        userList[this.index].style.display = 'none';
+                        this.flag = true;
+                    }
+                }
+            }
+            for (var i = 0; i < userList.length; i++) { 
+                userName = userList[i].getElementsByTagName('li');
+                for (var j = 0; j < userName.length; j++) {
+                    nameArr.push(userName[j]);
+                }
+            }
+            for (var i = 0; i < nameArr.length; i++) {
+                nameArr[i].flag = true;
+                nameArr[i].onclick = function(){
+                    if (this.flag) {
+                        for (var j = 0; j < nameArr.length; j++) {
+                            nameArr[j].className = '';
+                            nameArr[j].flag = true;
+                        }
+                        this.className = 'active';
+                        this.flag = false;
+                    }else{
+                        this.className = '';
+                        this.flag = true;
+                    }
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

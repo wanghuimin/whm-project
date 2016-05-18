@@ -213,7 +213,7 @@ gulp.task('serveCopyCss', function () {
 });
 
 gulp.task('serveCss', function(callback) {
-    gulpSequence('serveSass','serveCssmin','serveCopyCss')(callback)
+    gulpSequence('clearServe', 'serveSass','serveCssmin','serveCopyCss')(callback)
 });
 
 /**
@@ -297,7 +297,7 @@ gulp.task('wiredep', function () {
         .pipe(gulp.dest('frontend/app'));
 });
 
-gulp.task('serve', ['clearServe', 'connect', 'watch'], function () {
+gulp.task('serve', ['clearServe','clearBuildCss', 'connect', 'watch'], function () {
     require('opn')('http://localhost:8080/index.html');
 });
 
