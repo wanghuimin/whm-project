@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input id="qq-num" type="text">
+    <input id="sub-btn" type="button" value="输入正确的qq号">
+    <input id="bg-color" type="color">
+    <input type="range">
+    <script type="text/javascript">
+        window.onload = function(){
+            var subBtn = document.getElementById('sub-btn');
+            var bgColor = document.getElementById('bg-color');
+            bgColor.onchange = function(){
+                document.body.style.background = bgColor.value;
+            }
+            subBtn.onclick = function(){
+            var qqNum = document.getElementById('qq-num').value;
+            var qqLength = qqNum.length;
+                console.log(qqNum.charAt(0));
+                console.log(isNaN(qqNum));
+                if ((qqLength<5 || qqLength >11) && (qqNum.charAt(0) !== 0 || !isNaN(qqNum))) {
+                    alert('请输入正确的qq号');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
