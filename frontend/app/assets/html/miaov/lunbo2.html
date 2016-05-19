@@ -3,8 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/miaov/lunbo2.min.css">
 </head>
 <body>
-    
+    <div class="warp">
+        <img src="" alt="" id="img">
+        <div class="flip-wrap">
+            <span id="left"><</span>
+            <span id="right">></span>
+        </div>
+    </div>
+    <ul id="img-dot" class="clearfix">
+    </ul>
+    <script type="text/javascript">
+        
+        window.onload = function(){
+            var Img = document.getElementById('img');
+            var toLeft = document.getElementById('left');
+            var toRight = document.getElementById('right');
+            var imgDot = document.getElementById('img-dot');
+            var dotWrap = imgDot.getElementsByTagName('li');
+            var imgWrap = imgDot.getElementsByTagName('img');
+            var num = 0;
+            var picArray = new Array('pic1.jpg','pic2.jpg','pic3.jpg','pic4.jpg');
+
+            // 初始化
+            for (var i = 0; i < picArray.length; i++) {
+                imgDot.innerHTML += '<li></li>';
+            }
+            Img.src = '/assets/images/miaov/' + picArray[num];
+            dotWrap[num].className = 'active';
+            
+            function imgSrc(){
+                Img.src = '/assets/images/miaov/' + picArray[num];
+                for (var i = 0; i < dotWrap.length; i++) {
+                    dotWrap[i].className = '';
+                }
+                dotWrap[num].className = 'active';
+            }
+
+            toLeft.onclick = function(){
+                if (num > 0) {
+                    num--;
+                }else{
+                    num = picArray.length-1
+                }
+                imgSrc();
+
+            }
+            toRight.onclick = function(){
+                if (num < picArray.length-1) {
+                    num++;
+                }else{
+                    num =0; 
+                }
+                imgSrc();
+            }
+
+            for (var i = 0; i < dotWrap.length; i++) {
+                dotWrap[i].index = i;
+                dotWrap[i].onmouseover = function(){
+                    for (var j = 0; j < dotWrap.length; j++) {
+                        dotWrap[j].innerHTML = '';
+                    }
+                    this.innerHTML = "<img src = '/assets/images/miaov/"+picArray[this.index]+"' />"
+                }
+                dotWrap[i].onmouseout = function(){
+                    this.innerHTML = '';
+                }
+                dotWrap[i].onclick = function(){
+                    for (var j = 0; j < dotWrap.length; j++) {
+                        dotWrap[j].className = '';
+                    }
+                    Img.src = '/assets/images/miaov/' + picArray[this.index];
+                    this.className = 'active';
+                }
+            }
+        }
+    </script>
+
+
 </body>
 </html>
