@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            background: #000;
+            border-radius: 50px/50px;
+            -webkit-transform: rotateZ(50deg);
+        }
+    </style>
 </head>
 <body>
+
+    <div></div>
     <input id="qq-num" type="text">
     <input id="sub-btn" type="button" value="输入正确的qq号">
-    <input id="bg-color" type="color">'
+    <input id="bg-color" type="color">
     <input type="range">
     <script type="text/javascript">
+
         // qq号不为空
         // 长度大于5小于10
         // 第一个数字不能为0
         // qq号中不能有非数字
         // 不能为负
+        // 不能是小数
+
         window.onload = function(){
             var subBtn = document.getElementById('sub-btn');
             var bgColor = document.getElementById('bg-color');
@@ -24,7 +38,7 @@
             subBtn.onclick = function(){
             var qqNum = document.getElementById('qq-num').value;
             var qqLength = qqNum.length;
-                if (qqLength<5 || qqLength >11 || qqNum.charAt(0) == 0 || qqNum.charAt(0) == '-' || isNaN(qqNum)) {
+                if (qqLength<5 || qqLength >11 || qqNum.charAt(0) == 0 || qqNum.charAt(0) == '-' || isNaN(qqNum) || parseInt(qqNum) !== Number(qqNum)) {
                     alert('请输入正确的qq号');
                 }
             }
