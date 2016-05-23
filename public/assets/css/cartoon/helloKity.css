@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.kity {
+  width: 300px;
+  height: 356px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 50px;
+}
+.kity .ear-left, .kity .ear-right {
+  position: absolute;
+  top: -5px;
+  border: 8px solid #000;
+  background: #fff;
+  width: 70px;
+  height: 70px;
+}
+.kity .ear-left {
+  left: 0;
+  border-radius: 29px 135px 6px 60px/61px 100px 21px 100px;
+}
+.kity .ear-right {
+  left: 150px;
+  border-radius: 135px 29px 60px 6px/100px 61px 100px 21px;
+}
+.kity .flower, .kity .flower-pink {
+  position: absolute;
+  -webkit-transform: rotate(50deg);
+  -moz-transform: rotate(50deg);
+  transform: rotate(50deg);
+  top: -12px;
+  left: 180px;
+  z-index: 4;
+}
+.kity .flower div, .kity .flower-pink div {
+  position: absolute;
+  background: #000;
+  height: 40px;
+  width: 30px;
+  border-radius: 45%;
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  transform-origin: bottom center;
+  z-index: 3;
+}
+.kity .flower div.flower-one, .kity .flower-pink div.flower-one {
+  -webkit-transform: rotate(72deg);
+  -moz-transform: rotate(72deg);
+  transform: rotate(72deg);
+}
+.kity .flower div.flower-two, .kity .flower-pink div.flower-two {
+  -webkit-transform: rotate(144deg);
+  -moz-transform: rotate(144deg);
+  transform: rotate(144deg);
+}
+.kity .flower div.flower-three, .kity .flower-pink div.flower-three {
+  -webkit-transform: rotate(216deg);
+  -moz-transform: rotate(216deg);
+  transform: rotate(216deg);
+}
+.kity .flower div.flower-four, .kity .flower-pink div.flower-four {
+  -webkit-transform: rotate(288deg);
+  -moz-transform: rotate(288deg);
+  transform: rotate(288deg);
+}
+.kity .flower div.flower-five, .kity .flower-pink div.flower-five {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.kity .flower-pink {
+  z-index: 7;
+  top: -5px;
+  left: 180px;
+}
+.kity .flower-pink div {
+  background: #f54a99;
+  height: 34px;
+  width: 20px;
+}
+.kity .flower-pink:before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
+  z-index: 8;
+  top: 22px;
+  left: 0;
+}
+.kity .flower-pink:after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f5b404;
+  position: absolute;
+  z-index: 9;
+  top: 27px;
+  left: 5px;
+}
+.kity .face {
+  background: #fff;
+  width: 220px;
+  height: 160px;
+  border: 8px solid #000;
+  border-radius: 115px 115px 115px 115px/110px 110px 80px 80px;
+  position: absolute;
+  z-index: 2;
+}
+.kity .face .eyes-left, .kity .face .eyes-right {
+  width: 17px;
+  height: 22px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 80px;
+}
+.kity .face .eyes-left {
+  left: 37px;
+}
+.kity .face .eyes-right {
+  left: 166px;
+}
+.kity .face .mouth {
+  position: absolute;
+  top: 110px;
+  left: 95px;
+  width: 30px;
+  height: 20px;
+  border-radius: 45%;
+  background: #000;
+}
+.kity .face .mouth:before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  border-radius: 45%;
+  background: #f5b404;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+.kity .face .beard-left, .kity .face .beard-right {
+  position: absolute;
+}
+.kity .face .beard-left div, .kity .face .beard-right div {
+  height: 7px;
+  background: #000;
+  position: absolute;
+  top: 80px;
+  left: -40px;
+}
+.kity .face .beard-left .beard-one, .kity .face .beard-right .beard-one {
+  width: 60px;
+  border-radius: 50px 40px 20px 30px/15px 14px 5px 6px;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+.kity .face .beard-left .beard-two, .kity .face .beard-right .beard-two {
+  width: 45px;
+  border-radius: 50px 40px 20px 30px/15px 14px 5px 6px;
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+  top: 100px;
+  left: -33px;
+}
+.kity .face .beard-left .beard-three, .kity .face .beard-right .beard-three {
+  width: 50px;
+  border-radius: 50px 40px 20px 30px/15px 14px 5px 6px;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+  top: 120px;
+  left: -30px;
+}
+.kity .face .beard-right {
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  transform: scaleX(-1);
+  left: 220px;
+}
+.kity .kity-body {
+  width: 160px;
+  height: 120px;
+  background: #faa7d1;
+  border: 8px solid #000;
+  border-radius: 57px 57px 80px 80px/120px 120px 15px 15px;
+  position: absolute;
+  top: 145px;
+  left: 33px;
+}
+.kity .kity-body:after {
+  content: '';
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  border: 6px solid #000;
+  background: #f54a99;
+  border-radius: 11px 4px 45px 45px;
+  position: absolute;
+  top: -31px;
+  left: 37px;
+}
