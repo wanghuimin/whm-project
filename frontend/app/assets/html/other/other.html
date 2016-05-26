@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="/assets/js/lib/jquery/jquery.min.js"></script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .progress{
+            width: 50%;
+            height: 20px;
+            border: 1px solid #000;
+        }
+        .progress-bar{
+            display: inline-block;
+            height: 20px;
+            background: #000;
+            max-width: 100%;
+        }
+        input{
+            width: 50%;
+            height: 30px;
+            margin-bottom: 20px;
+            border: 1px solid #000;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <input class="name" type="text" name="" placeholder="姓名">
+    <input class="age" type="text" name="" placeholder="年龄">
+    <input class="sex" type="text" name="" placeholder="性别">
+    <input class="birth" type="text" name="" placeholder="出生年月">
+    <input class="edu" type="text" name="" placeholder="学历">
+    <input class="sub-btn" type="button" name="" value="提交">
+    <div class="progress">
+        <span class="progress-bar"></span>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            var proWidth = $('.progress').width();
+            var barWidth = 0;
+            $('input').attr('order','0');
+
+            function bar(that){
+                if (that.val() == '') {
+                    alert('msg');
+                }else if(that.attr('order') == 0){
+                    barWidth = barWidth + proWidth/5;
+                    $('.progress-bar').animate({width:barWidth});
+                    that.attr('order','1');
+                }
+            }
+
+            $('.name').blur(function(){
+                bar($(this));
+            })
+
+            $('.age').blur(function(){
+                if (isNaN(Number($(this).val()))) {
+                    alert('msg');
+                    return false;
+                }
+                bar($(this));
+            })
+
+            $('.sex').blur(function(){
+                bar($(this));
+            })
+
+            $('.birth').blur(function(){
+                bar($(this));
+            })
+
+            $('.edu').blur(function(){
+                bar($(this));
+            })
+
+        }) 
+    </script>
+</body>
+</html>

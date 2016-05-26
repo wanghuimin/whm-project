@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div class="count">
+            <input class="cut" type="button" value="-">
+            <span class="quantity">0</span>
+            <input class="add" type="button" value="+">
+            <p>单价为<span class="unit-price">15</span>元</p>  
+            <p>总计<span class="total-price">0</span>元</p>
+        </div>
+        <div class="count">
+            <input class="cut" type="button" value="-">
+            <span class="quantity">0</span>
+            <input class="add" type="button" value="+">
+            <p>单价为<span class="unit-price">23.3</span>元</p>  
+            <p>总计<span class="total-price">0</span>元</p>
+        </div>
+        <div class="count">
+            <input class="cut" type="button" value="-">
+            <span class="quantity">0</span>
+            <input class="add" type="button" value="+">
+            <p>单价为<span class="unit-price">12.5</span>元</p>  
+            <p>总计<span class="total-price">0</span>元</p>
+        </div>
+        <p>
+        商品合计共：<span class="total-item">0</span>件，共花费了：<span class="total-spend">0</span>元<br />
+        其中最贵的商品单价是：<span class="expensive">0</span>元
+        </p>
+    </div>
+    <script type="text/javascript">
+        window.onload = function(){
+            var boxDiv = document.getElementById('box');
+            var countBox = boxDiv.getElementsByClassName('count');
+            var totalItem = boxDiv.getElementsByClassName('total-item')[0];
+            var totalSpend = boxDiv.getElementsByClassName('total-spend');
+            var expSpan = boxDiv.getElementsByClassName('expensive')[0];
+            var sumItem = 0;
+            var sumSpent = 0;
+            var q = 0;
+            var expArray = new Array('0');
+            for (var i = 0; i < countBox.length; i++) {
+                countTotle(countBox[i]);
+            }
+            function countTotle(countObj){
+                var addBtn = countObj.getElementsByClassName('add')[0];
+                var cutBtn = countObj.getElementsByClassName('cut')[0];
+                var quanTity = countObj.getElementsByClassName('quantity');
+                var unitPrice = countObj.getElementsByClassName('unit-price');
+                var totalPrice = countObj.getElementsByClassName('total-price')[0];
+                var n = 0;
+                
+                addBtn.onclick = function(){
+                    quanTity[0].innerHTML = parseInt(quanTity[0].innerHTML)+1;
+                    totalPrice.innerHTML = quanTity[0].innerHTML * parseFloat(unitPrice[0].innerHTML);
+                    sumItem++;
+                    totalItem.innerHTML = sumItem;
+                    sumSpent += parseFloat(unitPrice[0].innerHTML);
+                    totalSpend[0].innerHTML = sumSpent;
+                    for (var i = 0; i < unitPrice.length; i++) {
+                        if (quanTity[i].innerHTML > 0 && n == 0) {
+                            expArray.push(unitPrice[i].innerHTML);
+                            n++;
+                        }
+                    }
+                    s = parseFloat(expArray[0])
+                    for (var i = 0; i < expArray.length; i++) {
+                        if (s < parseFloat(expArray[i])) {
+                            s = expArray[i];
+                        }
+                    }
+                    expSpan.innerHTML = s;
+                }
+                cutBtn.onclick = function(){
+                    if (parseInt(quanTity[0].innerHTML) > 0) {
+                        quanTity[0].innerHTML = parseInt(quanTity[0].innerHTML)-1;
+                        sumItem--;
+                        totalItem.innerHTML = sumItem;
+                        sumSpent -= parseFloat(unitPrice[0].innerHTML);
+                        totalSpend[0].innerHTML = sumSpent;
+                    }
+                    totalPrice.innerHTML = quanTity[0].innerHTML * parseFloat(unitPrice[0].innerHTML);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -43,6 +43,24 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(buildPath + '/assets/css'));
 });
 
+// bower_components paths
+var plugsPaths = {
+    js: [
+        'frontend/app/assets/js/lib/modernizr/modernizr.js',
+        'frontend/app/assets/js/lib/jquery/jquery.js',
+        'frontend/app/assets/js/lib/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+        'frontend/app/assets/js/lib/perfect-scrollbar/src/perfect-scrollbar.js',
+        'frontend/app/assets/js/lib/jquery-cookie/jquery.cookie.js',
+        'frontend/app/assets/js/lib/jquery-pjax/jquery.pjax.js',
+        'frontend/app/assets/js/lib/cropper/dist/cropper.js',
+        'frontend/app/assets/js/components/artTemplate/dist/template.js',
+        'frontend/app/assets/js/components/respondjs/respond.src.js',
+        'frontend/app/assets/js/tklib/nprogress/nprogress.js',
+        'frontend/app/assets/js/tklib/nocaptche/nc.js',
+        'frontend/app/assets/js/tklib/lazyload-1.3/lazyload.min.js',
+        'frontend/app/assets/js/tklib/lazyload-1.3/jquery.scrollstop.min.js',
+    ]
+}
 
 // CSS min task
 // ===============================(Styles_2 && Serve_Styles_3
@@ -84,6 +102,14 @@ gulp.task('jshint', function() {
 // ===============================(Scripts_2
 // 
 gulp.task('copyJs', function () {
+    // Copy RequireJs task
+    gulp.src(['frontend/app/assets/js/lib/requirejs/require.js'])
+        .pipe(gulp.dest(buildPath + '/assets/js/'));
+
+    // Copy bower_components task
+    gulp.src(plugsPaths.js)
+        .pipe(concat('plugs.js'))
+        .pipe(gulp.dest(buildPath + '/assets/js/'))
 
     // Copy Other javascript task
     return gulp.src([
@@ -239,10 +265,11 @@ gulp.task('connect', ['serveCss'],function () {
         .use(serveStatic('frontend/.tmp'))
         .use(serveStatic('frontend/app/'))
 
+
         // paths to bower_components should be relative to the current file
         // e.g. in app/index.html you should use ../bower_components
 
-        //.use('/frontend/app/assets/js/lib/bootstrap-sass-official/', serveStatic('frontend/app/assets/js/lib/'))
+        .use('/frontend/app/assets/js/lib/bootstrap-sass-official/', serveStatic('frontend/app/assets/js/lib/'))
         .use(serveIndex('frontend/app/'));
 
     require('http').createServer(app)
@@ -275,7 +302,8 @@ gulp.task('watch', ['connect'], function () {
     ]).on('change', $.livereload.changed);
 
     gulp.watch([
-        'frontend/app/assets/js/**/**/*.js'
+        'frontend/app/assets/js/**/**/*.js',
+        '!frontend/app/assets/js/lib/**/*'
     ], ['serveJs']).on('change', $.livereload.changed);
 
 
