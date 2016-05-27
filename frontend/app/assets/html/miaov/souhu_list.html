@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        #box{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .tab-box{
+            border: 1px solid #000;
+        }
+        .tab-box span{
+            display: inline-block;
+            border: 1px solid #000;
+            padding: 10px;
+            border-left: none;
+        }
+        .tab-box span.active{
+            background: orange;
+        }
+        ul{
+            border: 1px solid #000;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="tab-box">
+            <span>标题1</span>
+            <span>标题2</span>
+            <span>标题3</span>
+        </div>
+        <div class="list-box">
+            <ul>
+                <li>
+                    内容1
+                    <p>ksdflsf</p>
+                </li>
+                <li>
+                    内容1
+                    <p>ksdflsf</p>
+                </li>
+                <li>
+                    内容1
+                    <p>ksdflsf</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    内容2
+                    <p>ksdflsf</p>
+                </li>
+                <li>
+                    内容2
+                    <p>ksdflsf</p>
+                </li>
+                <li>
+                    内容2
+                    <p>ksdflsf</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    内容3
+                    <p>ksdflsf</p>
+                </li>
+                <li>
+                    内容3
+                    <p>ksdflsf</p>
+                </li>
+                <li>
+                    内容3
+                    <p>ksdflsf</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var boxDiv = document.getElementById('box');
+        var tabBox = boxDiv.getElementsByClassName('tab-box');
+        var listBox = boxDiv.getElementsByClassName('list-box')[0];
+        var listUl = listBox.getElementsByTagName('ul');
+        for (var j = 0; j < listUl.length; j++) {
+            listUl[j].index = j;
+        }
+        for (var i = 0; i < tabBox.length; i++) {
+            var titleSpan = tabBox[i].getElementsByTagName('span');
+            for (var i = 0; i < titleSpan.length; i++) {
+                titleSpan[i].index = i;
+                titleSpan[i].onclick = function(){
+                    for (var i = 0; i < titleSpan.length; i++) {
+                        titleSpan[i].className = '';
+                    }
+                    this.className = 'active';
+                    listUl[this.index].style.display = 'block';
+                }
+            }
+        }
+     </script>
+</body>
+</html>
