@@ -10,3 +10,11 @@ body h1, body h1 h2, body h1 h3 {
 body h1 li {
   color: #000;
 }
+
+.active, div {
+  color: #000;
+}
+
+div {
+  font-size: 12px;
+}

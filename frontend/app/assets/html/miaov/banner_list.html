@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/miaov/banner_list.min.css">
+</head>
+<body>
+    <div id="box">
+        <div class="wrap">
+            <div class="tab-box">
+                <h3>最热团购</h3>
+                <h3>商城特惠</h3>
+                <h3>名品推荐</h3>
+                <h3>缤纷活动</h3>
+            </div>
+            <div class="banner-wrap">
+                <div class="banner-box">
+                    <ul class="clearfix banner_list">
+                        <li><img src="/assets/images/miaov/banner_list/pic1.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic2.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic3.jpg"></li>
+                    </ul>
+                    <div class=" banner-tab">
+                        <h3>最热团购</h3>
+                        <h3>商城特惠</h3>
+                        <h3>名品推荐</h3>
+                    </div>
+                </div>
+                <div class="banner-box">
+                    <ul class="clearfix">
+                        <li><img src="/assets/images/miaov/banner_list/pic8.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic2.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic3.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic6.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic7.jpg"></li>
+                    </ul>
+                    <div class="banner-tab">
+                        <h3>最热团购</h3>
+                        <h3>商城特惠</h3>
+                        <h3>名品推荐</h3>
+                        <h3>缤纷活动</h3>
+                        <h3>缤纷活动</h3>
+                    </div>
+                </div>
+                <div class="banner-box">
+                    <ul class="clearfix">
+                        <li><img src="/assets/images/miaov/banner_list/pic9.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic2.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic3.jpg"></li>
+                    </ul>
+                    <div class="banner-tab">
+                        <h3>最热团购</h3>
+                        <h3>商城特惠</h3>
+                        <h3>名品推荐</h3>
+                    </div>
+                </div>
+                <div class="banner-box">
+                    <ul class="clearfix">
+                        <li><img src="/assets/images/miaov/banner_list/pic5.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic2.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic3.jpg"></li>
+                        <li><img src="/assets/images/miaov/banner_list/pic9.jpg"></li>
+                    </ul>
+                    <div class="banner-tab">
+                        <h3>最热团购</h3>
+                        <h3>商城特惠</h3>
+                        <h3>名品推荐</h3>
+                        <h3>缤纷活动</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function(){
+            var boxDiv = document.getElementById('box');
+            var wrapDiv = boxDiv.getElementsByClassName('wrap');
+
+            for (var i = 0; i < wrapDiv.length; i++) {
+                var tabBox = wrapDiv[i].getElementsByClassName('tab-box')[0];
+                var bannerWrap = wrapDiv[i].getElementsByClassName('banner-wrap')[0];
+                var tabTitle = tabBox.getElementsByTagName('h3');
+                var bannerBox = bannerWrap.getElementsByClassName('banner-box');
+                tabFn(tabTitle,bannerBox)
+
+            }
+            for (var i = 0; i < bannerBox.length; i++) {
+                var bannerTab = bannerBox[i].getElementsByClassName('banner-tab')[0];
+                var bannerTabTitlt = bannerTab.getElementsByTagName('h3');
+                var bannerBoxUl = bannerBox[i].getElementsByTagName('ul')[0];
+                var bannerBoxLi = bannerBoxUl.getElementsByTagName('li');
+
+                tabFn(bannerTabTitlt,bannerBoxLi);
+            }
+            function tabFn(tabTitleObj,bannerBoxObj) {
+                tabTitleObj[0].className = 'active';
+                bannerBoxObj[0].style.display = 'block';
+                for (var i = 0; i < tabTitleObj.length; i++) {
+                    tabTitleObj[i].index = i;
+                    tabTitleObj[i].onclick = function(){
+                        for (var j = 0; j < tabTitleObj.length; j++) {
+                            tabTitleObj[j].className = '';
+                        }
+                        this.className = 'active';
+                        for (var i = 0; i < bannerBoxObj.length; i++) {
+                            bannerBoxObj[i].style.display = 'none';
+                        }
+                        bannerBoxObj[this.index].style.display = "block";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

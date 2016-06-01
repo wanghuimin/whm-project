@@ -10,3 +10,10 @@ body{
         }
     }
 }
+.active{
+    color: #000;
+}
+div{
+    @extend .active;
+    font-size: 12px;
+}
