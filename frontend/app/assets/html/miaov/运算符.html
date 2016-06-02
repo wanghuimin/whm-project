@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script type="text/javascript">
+        window.onload = function(){
+            var ulBox = document.getElementById('box');
+            var ulLi = ulBox.getElementsByTagName('li');
+            var colorArr = new Array('red','orange','yellow','green','blue');
+            var str = '';
+            var num = null; 
+            for (var i = 0; i < ulLi.length; i++) {
+                ulLi[i].index = i;
+                ulLi[i].style.background = colorArr[i%colorArr.length];
+                ulLi[i].onclick = function(){
+                    for (var i = 0; i < ulLi.length; i++) {
+                        ulLi[i].style.background = colorArr[i%colorArr.length];
+                    }
+                    this.style.background = 'black';
+                    num = this.index;
+                    console.log(num);
+                }
+                ulLi[i].onmouseover = function(){
+                    str = this.style.background;
+                    this.style.background = 'black';
+                    if (num != null) {
+                        ulLi[num].style.background = 'black';
+                    }
+                }
+                ulLi[i].onmouseout = function(){
+                    this.style.background = str;
+                    if (num != null) {
+                        ulLi[num].style.background = 'black';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

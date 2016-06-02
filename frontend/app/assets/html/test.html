@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+    // 作用域
+
+        // 一、
+        // alert(a);
+        // var a = 1;
+        // alert(a);
+        // function a(){alert(2);}
+        // alert(a);
+        // var a = 3;
+        // alert(a);
+        // function a(){alert(4);}
+        // alert(a);
+
+        // 二、
+        // var a = 1;
+        // function fn1(){
+        //     alert(a);
+        //     var a = 2;
+        // }
+        // fn1();
+        // alert(a);
+
+
+        // 三
+        // alert(a)
+        // var a = 1;
+        // alert(a);
+        // var a = 2;
+        // alert(a);
+
+
+
+        // 四
+        // var a = 1;
+        // function fn1(){
+        //     alert(a);
+        //     a = 2;
+        // }
+        // fn1();
+        // alert(a);
+
+
+        // 五
+        // var a = 1;
+        // function fn1(a){
+        //     alert(a);
+        //     a = 2;
+        // }
+        // fn1();
+        // alert(a);
+
+
+
+        // 六
+        // var a = 1;
+        // function fn1(a){
+        //     alert(a);
+        //     a = 2;
+        // }
+        // fn1(a);
+        // alert(a);
+
+
+
+
+        // console.log(num, str, boo,1);
+        // var num = 12;
+        // var str = "珠峰";
+        // var boo = false;
+        // function fn(boo) {
+        //    console.log(num, str, boo,2);
+        //    var num = 130;
+        //    str = "培训";
+        //    console.log(num, str, boo,3);
+        // }
+        // fn(true);
+        // console.log(num, str, boo,4);
+
+
+
+        // var num = 1;
+        // function fn() {
+        //     var num = 10;
+        //     return function () {
+        //         console.log(num);
+        //     }
+        // }
+        // var f = fn();
+        // f();
+
+
+
+        // function fn() {
+        //     var i = 2;
+        //     return function (n) {
+        //         console.log(n + (++i));
+        //     }
+        // }
+        // var f = fn();
+        // f(10);
+        // f(20);
+        // fn()(10);//->先让fn这个函数执行,把返回的小函数紧接着在执行,并且传递一个值10
+        // fn()(20);
+
+
+
+
+
+    </script>
+</body>
+</html>
