@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div class="list-box">
+            <ul>
+                <li><input type="checkbox" name="">1232</li>
+                <li><input type="checkbox" name="">1232</li>
+                <li><input type="checkbox" name="">1232</li>
+                <li><input type="checkbox" name="">1232</li>
+                <li><input type="checkbox" name="">1232</li>
+                <li><input type="checkbox" name="">1232</li>
+                <li><input type="checkbox" name="">1232</li>
+                <li><input type="checkbox" name="">1232</li>
+                <li><input type="checkbox" name="">1232</li>
+                <li><input type="checkbox" name="">1232</li>
+            </ul>
+            <div class="btm-msg">
+                <span class="all-check"><input type="checkbox">全选</span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function(){
+            var boxDiv = document.getElementById('box');
+            var listBox = boxDiv.getElementsByClassName('list-box');
+            
+            for (var i = 0; i < listBox.length; i++) {
+                liFn(listBox[i]);
+            }
+            function fn(liObj,m){
+                if (m%2 == 1) {
+                    liObj.style.background = '#eee';
+                }else{
+                    liObj.style.background = '#fcfcfc';
+                }
+            }
+            function liFn(listObj){
+                var ulBox = listObj.getElementsByTagName('ul')[0];
+                var liList = ulBox.getElementsByTagName('li');
+                var btmMsg = listObj.getElementsByClassName('btm-msg')[0];
+                var allCheck = btmMsg.getElementsByClassName('all-check')[0];
+                var total = 0;
+                var num = null;
+                var oldBg = '';
+                
+                for (var i = 0; i < liList.length; i++) {
+                    liList[i].index = i;
+                    fn(liList[i],i);
+                    liList[i].oldBg=liList[i].style.background;
+                    liList[i].onmouseover = function(){
+                        this.style.background = '#ddd';
+                        if (num != null ) {
+                            liList[num].style.background = '#ddd';
+                        }
+                    }
+                    liList[i].onmouseout = function(){
+                        if (num != null && this.childNodes[0].checked ) {
+                            liList[num].style.background = '#ddd';
+                        }else if (!this.childNodes[0].checked) {
+                            this.style.background = this.oldBg;
+                        }
+                    }
+                    liList[i].childNodes[0].onclick = function(){
+                        if (this.checked) {
+                            this.parentNode.style.background = '#ddd';
+                            total++;
+                            num = this.parentNode.index;
+                        }else{
+                            allCheck.childNodes[0].checked = false;
+                            total--;
+                        }
+                         console.log(total == liList.length)
+                        if (total == liList.length) {
+
+                            allCheck.childNodes[0].checked = true;
+                        }
+                    }
+                    allCheck.childNodes[0].onclick = function(){
+                        if (this.checked) {
+                            for (var i = 0; i < liList.length; i++) {
+                                liList[i].childNodes[0].checked = true;
+                                liList[i].style.background = '#ddd';
+                            }
+                            total = liList.length;
+                        }else{
+                            for (var i = 0; i < liList.length; i++) {
+                                liList[i].childNodes[0].checked = false;
+                                fn(liList[i],i);
+                            }
+                            total = 0;
+                        }
+                    }
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

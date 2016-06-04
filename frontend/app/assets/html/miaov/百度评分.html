@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <span>总体评价</span>
+        <div class="star-box">
+            <a href="javascript:;"><img src="/assets/images/miaov/star_gray.png"></a>
+            <a href="javascript:;"><img src="/assets/images/miaov/star_gray.png"></a>
+            <a href="javascript:;"><img src="/assets/images/miaov/star_gray.png"></a>
+            <a href="javascript:;"><img src="/assets/images/miaov/star_gray.png"></a>
+            <a href="javascript:;"><img src="/assets/images/miaov/star_gray.png"></a>
+            <span class="score-info"></span>
+        </div>
+        <div class="star-box">
+            <a href="javascript:;"><img src="/assets/images/miaov/star_gray.png"></a>
+            <a href="javascript:;"><img src="/assets/images/miaov/star_gray.png"></a>
+            <a href="javascript:;"><img src="/assets/images/miaov/star_gray.png"></a>
+            <a href="javascript:;"><img src="/assets/images/miaov/star_gray.png"></a>
+            <a href="javascript:;"><img src="/assets/images/miaov/star_gray.png"></a>
+            <span class="score-info"></span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function(){
+            var boxDiv = document.getElementById('box');
+            var starBox = boxDiv.getElementsByClassName('star-box');
+            var scoreInfoArr = new Array('很差','较差','还行','推荐','力荐');
+            var path = '/assets/images/miaov/';
+            var num = null;
+            for (var i = 0; i < starBox.length; i++) {
+                scoreFn(starBox[i]);
+            }
+            function scoreFn(satrObj){
+                var star = satrObj.getElementsByTagName('a');
+                var scoreInfo = satrObj.getElementsByClassName('score-info')[0];
+                for (var i = 0; i < star.length; i++) {
+                    star[i].index = i;
+                    star[i].onmouseover = function(){
+                        for (var i = 0; i < star.length; i++) {
+                            star[i].childNodes[0].src = path+'star_gray.png';
+                        }
+                        for (var j = 0; j <= this.index; j++) {
+                            star[j].childNodes[0].src = path+'star.png';
+                        }
+                        scoreInfo.innerHTML = scoreInfoArr[j-1];
+                    }
+                    star[i].onmouseout = function(){
+                        for (var j = 0; j <= this.index; j++) {
+                            star[j].childNodes[0].src =  path+'star_gray.png';
+                        }
+                        scoreInfo.innerHTML = '';
+                        if (num != null) {
+                            for (var k = 0; k <= num; k++) {
+                                star[k].childNodes[0].src =  path+'star.png';
+                            }
+                            scoreInfo.innerHTML = scoreInfoArr[k-1];
+                        }
+                    }
+                    star[i].onclick = function(){
+                        for (var i = 0; i < star.length; i++) {
+                            star[i].childNodes[0].src = path+'star_gray.png';
+                        }
+                        for (var j = 0; j <= this.index; j++) {
+                            star[j].childNodes[0].src =  path+'star.png';
+                        }
+                        num = this.index;
+                        scoreInfo.innerHTML = scoreInfoArr[j-1];
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
