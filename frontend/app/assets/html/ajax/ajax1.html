@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="/assets/js/lib/jquery/jquery.js"></script>
+</head>
+<body>
+    <input type="button" id="send" value="ajax获取">
+    <div class="comment"></div>
+    <div id="resText"></div>
+<script type="text/javascript">
+    $(function(){
+        $('#send').click(function(){
+            
+            // $('#resText').load('ajax_model.html .para');
+
+
+
+            $.getJSON('ajax.json',function(data){
+                var str = '';
+                $.each(data,function(bbb,aaa){
+                    $.each(aaa , function(commentIndex,comment){
+                        str += comment['username']+comment['content'];
+
+                    });
+                })
+                $('#resText').html(str);
+            })
+        })
+    })
+</script>
+</body>
+</html>

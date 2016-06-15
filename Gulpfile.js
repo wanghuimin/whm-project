@@ -263,14 +263,14 @@ gulp.task('connect', ['serveCss'],function () {
     var app = require('connect')()
         .use(require('connect-livereload')({port: 35729}))
         .use(serveStatic('frontend/.tmp'))
-        .use(serveStatic('frontend/app/'))
+        .use(serveStatic('frontend'))
 
 
         // paths to bower_components should be relative to the current file
         // e.g. in app/index.html you should use ../bower_components
 
         .use('/frontend/app/assets/js/lib/bootstrap-sass-official/', serveStatic('frontend/app/assets/js/lib/'))
-        .use(serveIndex('frontend/app/'));
+        .use(serveIndex('frontend'));
 
     require('http').createServer(app)
         .listen(8080)
@@ -322,11 +322,11 @@ gulp.task('wiredep', function () {
     gulp.src('frontend/app/**/*.html')
         .pipe(wiredep())
         // .pipe(wiredep({exclude: ['bootstrap-sass-official']}))
-        .pipe(gulp.dest('frontend/app'));
+        .pipe(gulp.dest('frontend'));
 });
 
 gulp.task('serve', ['clearServe','clearBuildCss', 'connect', 'watch'], function () {
-    require('opn')('http://localhost:8080/index.html');
+    require('opn')('http://localhost:8080/whm-project.html');
 });
 
 

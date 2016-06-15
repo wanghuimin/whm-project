@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+</head>
+<body>
+    <!-- <div ng-app="">
+        <p>名字：<input type="text" ng-model = 'name'></p>
+        <h1>hello {{name}}</h1>
+    </div> -->
+
+
+
+    <!-- <div ng-app="" ng-init="firstName='John'">
+        <span ng-bind="firstName"></span>
+    </div> -->
+
+
+
+    <!-- <div ng-app="">
+        <span>{{5+5}}</span>
+    </div> -->
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <input type="text" name="" ng-model="firstName">
+        <input type="text" name="" ng-model="lastName">
+        姓名：{{firstName+lastName}}
+    </div>
+    <script type="text/javascript">
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.firstName = 'John';
+            $scope.lastName = 'Doe';
+        })
+    </script> -->
+
+
+
+    <!-- <div ng-app="" ng-init="quantity=6;cost=5">
+        <p>总价：{{quantity * cost}}</p>
+        <p ng-bind="quantity * cost"></p>
+    </div> -->
+
+
+
+    <!-- <div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
+        {{person.firstName}}
+        <p ng-bind="person.firstName"></p>
+    </div> -->
+
+
+
+
+    <!-- <div ng-app="" ng-init="points=[1,2,3,4,5]">
+        <p>{{points[0]}}</p>
+        <p ng-bind="points[0]"></p>
+    </div> -->
+
+
+
+    
+    <!-- <div ng-app="" ng-init="quantity=1;price=5">
+        <input type="text" name="" ng-model="quantity">
+        <input type="text" name="" ng-model="price">
+        {{quantity * price}}
+    </div> -->
+
+
+
+    
+    <!-- <div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x }}
+            </li>
+        </ul>
+    </div> -->
+
+
+
+
+    <!-- <div ng-app="" ng-init="names=[
+    {name:'a',country:'b'},
+    {name:'e',country:'f'},
+    {name:'h',country:'i'}]">
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x.name + x.country}}
+            </li>
+        </ul>
+
+    </div> -->
+
+
+
+    <!-- <runoob-directive></runoob-directive>   
+    <div runoob-directive></div> 
+    <div class="runoob-directive"></div> -->
+    <!-- directive: runoob-directive -->
+    <!-- <script type="text/javascript">
+        var app = angular.module('myApp',[]);
+        app.directive("runoobDirective",function(){
+            return {
+                // restrict: 'E',
+                // restrict: 'A',
+                // restrict: 'C',
+                restrict: 'M',
+                replace : true,
+                template: '<h1>自定义指令！</h1>'
+            }
+        })
+    </script> -->
+
+
+
+    <!-- <div ng-controller="myCtrl">
+        名字：<input type="text" ng-model="name">
+        <h1>你输入了：{{name}}</h1>
+    </div>
+    <script type="text/javascript">
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.name = "john";
+        })
+    </script> -->
+
+    
+
+
+    <!-- <form ng-app="" name="myForm">
+        Email:
+        <input type="email" name="myAddress" ng-model="text">
+        <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+    </form> -->
+
+
+
+
+    <!-- <form ng-app="" name="myForm" ng-init="myText = 'text@runoob.com'">
+        Email:
+        <input type="email" name="myAddress" ng-model="myText" required>
+        <h1>状态</h1>
+        <p>valid: 
+            <span style="color:red">{{myForm.myAddress.$valid}}</span>
+            (如果输入的是合法的则为true)
+        </p>
+        <p>Dirty: 
+            <span style="color:red">{{myForm.myAddress.$dirty}}</span>
+            (如果值改变则为true)
+        </p>
+        <p>Touched: 
+            <span style="color:red">{{myForm.myAddress.$touched}}</span>
+            (如果通过触屏点击则为true)
+        </p>
+    </form> -->
+
+
+
+
+    <!-- <style type="text/css">
+        input.ng-invalid{
+            background: red
+        }        
+    </style>
+    <form ng-app="">
+        <input type="email" ng-model="text" required>
+    </form> -->
+    <!-- ng-empty
+    ng-not-empty
+    ng-touched
+    ng-untouched
+    ng-valid
+    ng-invalid
+    ng-dirty
+    ng-pending
+    ng-pristine -->
+
+
+    
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <span>{{text}}</span>
+    </div>
+    <script type="text/javascript">
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.text = 'abc';
+        })
+    </script> -->
+
+
+
+    
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat="x in names"> {{x}} <span style="color: red"> {{lastName}} </span></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var app = angular.module("myApp",[]);
+        app.controller('myCtrl',function($scope,$rootScope){
+            $scope.names = ['a','b','c'];
+            $rootScope.lastName = 'd';
+        })
+    </script> -->
+
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <input type="text" name="" ng-model="firstName">
+        <input type="text" name="" ng-model="lastName">
+        <span>{{ allName() }}</span>
+    </div>
+    <script type="text/javascript">
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.firstName = 'a';
+            $scope.lastName = 'b';
+            $scope.allName = function(){
+                return $scope.firstName + $scope.lastName;
+            }
+        })
+    </script>-->
+
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <p>姓名{{ firstName | uppercase}}</p>
+    </div>
+
+    <script type="text/javascript" src="angular1.js"></script> -->
+
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        数量:<input type="number" name="" ng-model="quantity">
+        单价:<input type="number" name="" ng-model="price">
+        <span>总价{{ totle() | currency}}</span>
+    </div>
+    <script type="text/javascript">
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.quantity = 0;
+            $scope.price = 10.01;
+            $scope.totle = function(){
+                return $scope.quantity * $scope.price;
+            }
+        })
+    </script> -->
+
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="namesCtrl">
+        <ul>
+            <li ng-repeat=" x in names | orderBy:'name'">
+                {{ x.name+','+x.country}}
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        angular.module('myApp', []).controller('namesCtrl', function($scope) {
+            $scope.names = [
+                {name:'Jani',country:'Norway'},
+                {name:'Hege',country:'Sweden'},
+                {name:'Kai',country:'Denmark'}
+            ];
+        });
+    </script> -->
+
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="namesCtrl">
+        <input type="text" ng-model="test">
+        <ul>
+            <li ng-repeat=" x in names | filter:test | orderBy:'name'">
+                {{ (x.name | uppercase) + ',' + x.country}}
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        angular.module('myApp', []).controller('namesCtrl', function($scope) {
+            $scope.names = [
+                {name:'Jani',country:'Norway'},
+                {name:'Hege',country:'Sweden'},
+                {name:'Kai',country:'Denmark'}
+            ];
+        });
+    </script> -->
+
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        {{ myUrl }}
+    </div>
+    <script type="text/javascript">
+        angular.module('myApp',[]).controller('myCtrl',function($scope,$location){
+            $scope.myUrl = $location.absUrl();
+        })
+    </script> -->
+
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat=" x in names">
+                {{ x.username + ',' + x.content }}
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        angular.module('myApp',[]).controller('myCtrl',function($scope, $http){
+            $http.get("json1.json")
+            .success(function(data){
+                $scope.names = data.user;
+            })
+        })
+    </script> -->
+
+
+
+    
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        {{ text }}
+    </div>
+    <script type="text/javascript">
+        angular.module("myApp",[]).controller('myCtrl',function($scope, $timeout){
+            $scope.text = '第一次显示文字';
+            $timeout(function(){
+                $scope.text = '第二次显示文字';
+            },2000);
+        })
+    </script> -->
+
+
+
+    
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        {{ time }}
+    </div>
+    <script type="text/javascript">
+        angular.module("myApp",[]).controller('myCtrl',function($scope,$interval){
+            $scope.time = new Date().toLocaleString();
+            $interval(function(){
+                $scope.time = new Date().toLocaleString();
+            },1000)
+        })
+    </script> -->
+
+
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        {{ serviceText }}
+    </div>
+    <script type="text/javascript">
+        var app = angular.module('myApp',[]);
+        app.service('myService',function(){
+            this.myFunc = function(x){
+                return x.toString(16)
+            }
+        })
+        app.controller('myCtrl',function($scope,myService){
+            $scope.serviceText = myService.myFunc(255)
+        })
+    </script> -->
+
+
+
+
+    
+
+    
+</body>
+</html>

@@ -1,0 +1,19 @@
+body{
+    background: green;
+    h1{
+        font-size: 50px;
+        &,h2,h3{
+            color: #000;
+        }
+        li{
+            color:#000;
+        }
+    }
+}
+.active{
+    color: #000;
+}
+div{
+    @extend .active;
+    font-size: 12px;
+}

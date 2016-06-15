@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var arr = new Array(1,4,34,6,23,6,756,8,5,3);
+        // var t = null;
+        // for (var i = 0; i < arr.length; i++) {
+        //     for (var j = i; j < arr.length; j++) {
+        //         if (arr[i]>arr[j]) {
+        //             t = arr[i];
+        //             arr[i] = arr[j];
+        //             arr[j] = t;
+        //         }
+        //     }
+        // }
+
+        
+        var arr = [1,4,24,342,3534,345,765,756]
+
+        function quickSort(Arr){
+            if (Arr.length <= 1){
+                return Arr;
+            } 
+            
+            var rightSort = [];
+            var leftSort = [];
+            
+            for (var i = 1; i < Arr.length; i++) {
+                if (Arr[0]>Arr[i]) {
+                    leftSort.push(Arr[i]);
+                }else{
+                    rightSort.push(Arr[i]);
+                }
+            }
+            return quickSort(leftSort).concat([Arr[0]],quickSort(rightSort));
+        }
+
+        console.log(quickSort(arr));
+
+    </script>
+</body>
+</html>
