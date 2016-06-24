@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.js"></script>
 </head>
 <body>
     <!-- <div ng-app="">
@@ -380,7 +381,236 @@
 
 
     
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <select ng-model="selectedName" ng-options="x for x in names"></select>
+    </div>
+
+    <script type="text/javascript">
+        angular.module("myApp",[]).controller('myCtrl',function($scope){
+            $scope.names = ['aaa','bbb','ccc']
+        })
+    </script> -->
+
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <select>
+            <option ng-repeat="x in names">{{x}}</option>
+        </select>
+    </div>
+
+    <script type="text/javascript">
+        angular.module("myApp",[]).controller('myCtrl',function($scope){
+            $scope.names = ['aaa','bbb','ccc']
+        })
+    </script> -->
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+
+        <p>选择的网站是:</p>
+
+        <select ng-model="selectedSite" ng-options="x for (x, y) in sites">
+        </select>
+
+        <h1>你选择的值是: {{selectedSite}}</h1>
+
+    </div>
+
+    <p>该实例演示了使用对象作为创建下拉列表。</p>
+
+    <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.sites = {
+            site01 : "Google",
+            site02 : "Runoob",
+            site03 : "Taobao"
+        };
+    });
+    </script> -->
+
+
+
+
+
+    <!-- <div ng-app="" ng-init="mySwitch=true">
+        <button ng-disabled="mySwitch">点我</button>
+        <input type="checkbox" name="" ng-model="mySwitch">
+        {{mySwitch}}    
+    </div> -->
+
+
+
+
+
+    <!-- <div ng-app="">
+        <p ng-show="true">我是可见的</p>
+        <p ng-show="false">我是不可见的</p>
+    </div> -->
+
+
 
     
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <button ng-click="count = count + 1">点我</button>
+        {{count}}
+    </div>
+    <script type="text/javascript">
+        angular.module("myApp",[]).controller('myCtrl',function($scope){
+            $scope.count = 0;
+        })
+    </script> -->
+
+
+
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <button ng-click="toggle()">显示/隐藏</button>
+        <div ng-show="myToggle">
+            <input type="text" ng-model="firstName" name="">
+            <input type="text" ng-model="lastName" name="">
+            姓名：{{firstName + lastName}}  
+        </div>
+    </div>
+    <script type="text/javascript">
+        angular.module("myApp",[]).controller('myCtrl',function($scope){
+            $scope.firstName = 'aaa';
+            $scope.lastName = 'bbb';
+            $scope.myToggle = true;
+            $scope.toggle = function(){
+                $scope.myToggle = !$scope.myToggle;
+            }
+        })
+    </script> -->
+
+
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <form>
+            <input type="text" ng-model="user.firstName" name=""><br>
+            <input type="text" ng-model="user.lastName" name="">
+            <button ng-click="reset()">重置</button>
+            <p>user:{{user}}</p>
+            <p>master:{{master}}</p>
+        </form>
+    </div>
+    <script type="text/javascript">
+        angular.module('myApp',[]).controller('myCtrl',function($scope){
+            $scope.master = {firstName:'aaa',lastName:'bbb'};
+            $scope.reset = function(){
+                $scope.user = angular.copy($scope.master)
+            }
+            $scope.reset();
+        })
+    </script> -->
+
+
+
+    
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <form name="myForm">
+            <div>
+                用户名: <input type="text" ng-model="user" name="user" required>
+                <p style="color: red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                    <span ng-show="myForm.user.$error.required">用户名是必须的</span>
+                </p>
+            </div>
+            <div>
+                邮箱: <input type="email" ng-model="email" name="email" required>
+                <p style="color: red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                    <span ng-show="myForm.email.$error.required">邮箱是必须的</span>
+                    <span ng-show="myForm.email.$error.email">非法的邮箱地址</span>
+                </p>
+            </div>
+            <input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.email.$dirty && myForm.email.$invalid">
+        </form> 
+    </div>
+    <script type="text/javascript">
+        angular.module('myApp',[]).controller('myCtrl',function($scope){
+            $scope.user = 'Tom';
+            $scope.email = 'Tom@qq.com';
+        })
+    </script> -->
+
+
+    <!-- <style type="text/css">
+        div {
+          transition: all linear 0.5s;
+          background-color: lightblue;
+          height: 100px;
+          width: 100%;
+          position: relative;
+          top: 0;
+          left: 0;
+        }
+        .ng-hide {
+          height: 0;
+          width: 0;
+          background-color: transparent;
+          top:-200px;
+          left: 200px;
+        }
+    </style>
+    <body ng-app="myApp">
+        <h1>隐藏 DIV: <input type="checkbox" ng-model="myCheck"></h1>
+    <div ng-hide="myCheck"></div>
+    <script>
+        var app = angular.module('myApp', ['ngAnimate']);
+    </script> -->
+
+
+
+
+
+    <div ng-app = "mainApp" ng-controller = "CalcController">
+         <p>输入一个数字: <input type = "number" ng-model = "number" /></p>
+         <button ng-click = "square()">X<sup>2</sup></button>
+         <p>结果: {{result}}</p>
+      </div>
+      <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         mainApp.config(function($provide) {
+            $provide.provider('MathService', function() {
+               this.$get = function() {
+                  var factory = {};
+                  
+                  factory.multiply = function(a, b) {
+                     return a * b;
+                  }
+                  return factory;
+               };
+            });
+         });
+         mainApp.value("defaultInput", 5);
+         
+         mainApp.factory('MathService', function() {
+            var factory = {};
+            
+            factory.multiply = function(a, b) {
+               return a * b;
+            }
+            return factory;
+         });
+         
+         mainApp.service('CalcService', function(MathService){
+            this.square = function(a) {
+               return MathService.multiply(a,a);
+            }
+         });
+         
+         mainApp.controller('CalcController', function($scope, CalcService, defaultInput) {
+            $scope.number = defaultInput;
+            $scope.result = CalcService.square($scope.number);
+
+            $scope.square = function() {
+               $scope.result = CalcService.square($scope.number);
+            }
+         });
+            
+      </script>
 </body>
 </html>
